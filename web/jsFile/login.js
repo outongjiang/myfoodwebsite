@@ -1,4 +1,3 @@
-
 $(function () {
     var i=1;
     var animate;

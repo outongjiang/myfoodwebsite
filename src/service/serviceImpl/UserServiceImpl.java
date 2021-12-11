@@ -10,7 +10,7 @@ public class UserServiceImpl implements UserService {
     private UserDao ud=new UserDao();
     //检验登录
     @Override
-    public int register(User user) {
+    public int login(User user) {
         String sql="select * from user username=? and password=? ";
         List<Object> params=new ArrayList<Object>();
         params.add(user.getUsername());

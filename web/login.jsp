@@ -34,7 +34,12 @@
         </tr>
         <tr>
             <td> <label for="inputEmail3" class="col-sm-2 control-label">验证码:</label></td>
-            <td><img id="checkCodeid" src="/CheckCode" alt=""></td>
+            <td> <input name="checkCode" type="text" class="form-control q" id="inputEmail3" placeholder="验证码"></td>
+
+        </tr>
+        <tr>
+            <td></td>
+            <td><img src="/CheckCode" alt=""></td>
         </tr>
         <tr>
             <td> </td>
