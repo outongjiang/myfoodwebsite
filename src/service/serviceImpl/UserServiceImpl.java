@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 public class UserServiceImpl implements UserService {
     private UserDao ud=new UserDao();
     //检验登录

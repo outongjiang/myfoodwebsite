@@ -21,20 +21,20 @@
 
 <body>
 <h1>欢迎来到otj餐厅</h1>
-<form class="form-horizontal position">
+<form class="form-horizontal position" action="LoginServlet" method="get">
     <table>
         <tr>
             <td> <label for="inputEmail3" class="col-sm-2 control-label">用户名:</label></td>
-            <td> <input type="text" class="form-control q" id="inputEmail3" placeholder="用户名"></td>
+            <td> <input name="username" type="text" class="form-control q" id="inputEmail3" placeholder="用户名"></td>
 
         </tr>
         <tr>
             <td> <label for="inputEmail3" class="col-sm-2 control-label">密码:</label></td>
-            <td> <input type="password" class="form-control q" id="inputEmail3" placeholder="密码"></td>
+            <td> <input name="password" type="password" class="form-control q" id="inputEmail3" placeholder="密码"></td>
         </tr>
         <tr>
             <td> <label for="inputEmail3" class="col-sm-2 control-label">验证码:</label></td>
-            <td><img src="../images/餐厅背景图.jpg" alt=""></td>
+            <td><img id="checkCodeid" src="/CheckCode" alt=""></td>
         </tr>
         <tr>
             <td> </td>
