@@ -9,7 +9,9 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Properties;
 public abstract class JDBC {
-    static DataSource ds=null;
+    private static DataSource ds=null;
+    private static Connection conn=null;
+    private static PreparedStatement prestate=null;
     static {
         Properties properties=new Properties();
         try {
@@ -32,9 +34,8 @@ public abstract class JDBC {
         return null;
     }
     public static ResultSet select(String sql, List<Object> params){
+        conn=getConnection();
         ResultSet rs=null;
-        Connection conn=getConnection();
-        PreparedStatement prestate=null;
         try {
             prestate=conn.prepareStatement(sql);
         } catch (SQLException throwables) {
@@ -51,8 +52,6 @@ public abstract class JDBC {
         }
         try {
             rs= prestate.executeQuery();
-            prestate.close();
-            conn.close();
             return rs;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -65,9 +64,8 @@ public abstract class JDBC {
         return null;
     }
     public static int update(String sql, List<Object> params){
+        conn=getConnection();
         int j=-1;
-        Connection conn=getConnection();
-        PreparedStatement prestate=null;
         try {
             conn=getConnection();
             prestate=conn.prepareStatement(sql);
@@ -85,8 +83,6 @@ public abstract class JDBC {
         }
         try {
             j= prestate.executeUpdate();
-            prestate.close();
-            conn.close();
             return j;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -97,5 +93,22 @@ public abstract class JDBC {
             e.printStackTrace();
         }
         return -1;
+    }
+
+    public static void Close(){
+        if(prestate!=null){
+            try {
+                prestate.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+        if(conn!=null){
+            try {
+                conn.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
     }
 }
