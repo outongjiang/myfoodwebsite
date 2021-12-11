@@ -18,10 +18,11 @@ public class UserServiceImpl implements UserService {
         params.add(user.getPassword());
         ResultSet rs=ud.select(sql,params);
         try {
-            rs.next();
+            if(rs.next())
+                return 1;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return (rs==null)?0:1;
+        return -1;
     }
 }
