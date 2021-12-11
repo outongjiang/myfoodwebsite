@@ -29,17 +29,17 @@
         <tr>
             <td> <label for="inputEmail3" class="col-sm-2 control-label">用户名:</label></td>
             <td> <input name="username" type="text" class="form-control q" id="inputEmail3" placeholder="用户名"></td>
-            <td class="red"><%="2".equals(loginStatus)?"账号密码错误":""%></td>
+            <td class="red"><%="-2".equals(loginStatus)?"用户名错误":""%></td>
         </tr>
         <tr>
             <td> <label for="inputEmail3" class="col-sm-2 control-label">密码:</label></td>
             <td> <input name="password" type="password" class="form-control q" id="inputEmail3" placeholder="密码"></td>
-            <td class="red"><%="2".equals(loginStatus)?"账号密码错误":""%></td>
+            <td class="red"><%="-2".equals(loginStatus)?"密码错误":""%></td>
         </tr>
         <tr>
             <td> <label for="inputEmail3" class="col-sm-2 control-label">验证码:</label></td>
             <td> <input name="checkCode" type="text" class="form-control q" id="inputEmail3" placeholder="验证码"></td>
-            <td class="red"><%="1".equals(loginStatus)?"验证码错误":""%></td>
+            <td class="red"><%="-1".equals(loginStatus)?"验证码错误":""%></td>
         </tr>
         <tr>
             <td></td>

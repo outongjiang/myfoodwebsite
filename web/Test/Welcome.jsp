@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-<h1>欢迎您,<%=request.getSession().getAttribute("username")%></h1>
+<h1>欢迎您,<%=request.getSession().getAttribute("loginStatus")%></h1>
 </body>
 </html>
