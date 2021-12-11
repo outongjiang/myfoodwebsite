@@ -15,17 +15,13 @@ public class ServletTest1 extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Map<String,String[]>map=req.getParameterMap();
         student student=new student();
+
         try {
-            try {
-                test1.setFields(student,map);
-            } catch (NoSuchMethodException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            }
-        } catch (IllegalAccessException e) {
+            test1.setFields(student,map);
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
         System.out.println(student);
     }
 }
