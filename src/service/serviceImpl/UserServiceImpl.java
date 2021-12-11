@@ -11,7 +11,7 @@ public class UserServiceImpl implements UserService {
     //检验登录
     @Override
     public int login(User user) {
-        String sql="select * from user username=? and password=? ";
+        String sql="select * from myfood username=? and password=? ";
         List<Object> params=new ArrayList<Object>();
         params.add(user.getUsername());
         params.add(user.getPassword());

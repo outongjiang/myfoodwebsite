@@ -33,10 +33,10 @@ public abstract class JDBC {
     }
     public static ResultSet select(String sql, List<Object> params){
         ResultSet rs=null;
-        Connection conn=null;
+        Connection conn=getConnection();
         PreparedStatement prestate=null;
         try {
-            prestate=getConnection().prepareStatement(sql);
+            prestate=conn.prepareStatement(sql);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -66,7 +66,7 @@ public abstract class JDBC {
     }
     public static int update(String sql, List<Object> params){
         int j=-1;
-        Connection conn=null;
+        Connection conn=getConnection();
         PreparedStatement prestate=null;
         try {
             conn=getConnection();
