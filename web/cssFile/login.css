@@ -1,0 +1,58 @@
+body{
+    background:url("../images/餐厅背景图.jpg")no-repeat;
+    background-size: cover;
+}
+* {
+    font-weight: bold;
+    color: burlywood;
+    font-size: 30px;
+    margin: 10px;
+    text-shadow: 2px 2px 6px black;
+}
+
+
+/*整个登录框的定位*/
+.position {
+    position: absolute;
+    left: 500px;
+    top: 200px;
+    
+}
+/*按钮的定位*/
+.btnPosition {
+    position: relative;
+    left: 60px;
+    top: 0px;
+    
+}
+/*验证码样式*/
+img {
+
+    width: 140px;
+    height: 40px;
+    border: 1px solid rgb(3, 26, 70);
+}
+
+input {
+    height: 40px;
+    border-radius: 5% 5% 5% 5%;
+   
+}
+/*按钮样式*/
+.btn{background: rgb(209, 204, 204);
+    height: 50px;            
+}
+
+/* 验证码的刷新提示语句样式 */
+.flush {
+    text-decoration: none;
+    color: burlywood;
+
+}
+.btnShadow{
+    text-shadow: 1px 1px 30px rgb(0, 0, 0);
+}
+h1{
+    color: burlywood;
+}
+
