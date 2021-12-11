@@ -25,12 +25,8 @@ public class LoginServlet extends HttpServlet {
          user.setPassword(password);
         if(req.getSession().getAttribute("checkCode")==req.getSession().getAttribute("checkCode")){
             if(userService.login(user)==1){
-                resp.sendRedirect("/vd/Test/Welcome.jsp");
-            }else{
-                //账号密码错误
-            }
-        }else{
-            //验证码错误
-        }
+                req.getSession().setAttribute("username",username);
+            }}
+        resp.sendRedirect("/vd/Test/Welcome.jsp");
     }
 }
