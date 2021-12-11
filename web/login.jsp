@@ -20,13 +20,16 @@
 </head>
 
 <body>
+<%
+    String loginStatus=String.valueOf(request.getSession().getAttribute("loginStatus"));
+%>
 <h1>欢迎来到otj餐厅</h1>
 <form class="form-horizontal position" action="LoginServlet" method="get">
     <table>
         <tr>
             <td> <label for="inputEmail3" class="col-sm-2 control-label">用户名:</label></td>
             <td> <input name="username" type="text" class="form-control q" id="inputEmail3" placeholder="用户名"></td>
-
+            <td><%="1".equals(loginStatus)?"验证码错误":("2".equals(loginStatus)?"账号密码错误":"")%></td>
         </tr>
         <tr>
             <td> <label for="inputEmail3" class="col-sm-2 control-label">密码:</label></td>

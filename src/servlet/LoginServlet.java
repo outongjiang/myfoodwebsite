@@ -15,7 +15,8 @@ public class LoginServlet extends HttpServlet {
     private UserServiceImpl userService=new UserServiceImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        req.setCharacterEncoding("utf-8");
+        resp.setCharacterEncoding("utf-8");
         String code=req.getParameter("checkCode");
         String username=req.getParameter("username");
         String password=req.getParameter("password");
@@ -25,7 +26,7 @@ public class LoginServlet extends HttpServlet {
          user.setPassword(password);
         if(code.equalsIgnoreCase(String.valueOf( req.getSession().getAttribute("checkCode")))){
             if(userService.login(user)==1){
-                //loginStatus 1表示验证码错误，2表示账号密码错误，username表示通过
+                //loginStatus
                 req.getSession().setAttribute("loginStatus",username);//通过登录成功
             }else{
                 req.getSession().setAttribute("loginStatus","2");
