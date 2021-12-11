@@ -42,7 +42,7 @@
         </tr>
         <tr>
             <td></td>
-            <td><img src="/CheckCode" alt=""></td>
+            <td><img src="CheckCode" alt="验证码加载失败"></td>
         </tr>
         <tr>
             <td> </td>
