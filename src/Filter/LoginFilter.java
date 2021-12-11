@@ -22,6 +22,7 @@ public class LoginFilter implements Filter {
         }else if("-2".equals(req.getSession().getAttribute("loginStatus"))){
             resp.sendRedirect("/vd/login.jsp");
         }else{
+
             filterChain.doFilter(req,resp);
         }
 
