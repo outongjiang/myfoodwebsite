@@ -29,10 +29,10 @@ public class LoginServlet extends HttpServlet {
                 //loginStatus
                 req.getSession().setAttribute("loginStatus",username);//通过登录成功
             }else{
-                req.getSession().setAttribute("loginStatus","2");
+                req.getSession().setAttribute("loginStatus","-2");
             }
         }else{
-            req.getSession().setAttribute("loginStatus","1");
+            req.getSession().setAttribute("loginStatus","-1");
             //验证码错误
         }
         resp.sendRedirect("/vd/Test/Welcome.jsp");

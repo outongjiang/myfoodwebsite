@@ -3,7 +3,7 @@ $(function () {
     var animate;
     $("#checkCodeid").click(function () {
         var d=new Date();
-        $(this).src="CheckCode?"+d.getSeconds();
+        this.src="CheckCode?cheat="+d.getTime();
     });
     animate=setInterval(function(){
         if(i%2==0){
