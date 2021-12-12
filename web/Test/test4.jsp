@@ -1,4 +1,4 @@
-<%--
+<%@ page import="Test.User" %><%--
   Created by IntelliJ IDEA.
   User: 86180
   Date: 2021/12/12
@@ -11,9 +11,11 @@
     <title>Title</title>
 </head>
 <body>
-    <% %>
-    <% request.setAttribute("u",);%>
-    ${}
+    <% User user=new User();
+        user.setName("张三");
+    %>
+    <% request.setAttribute("u",user);%>
+    ${requestScope.u.name}
     <h1>${s}</h1>
 </body>
 </html>
