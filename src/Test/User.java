@@ -1,7 +1,7 @@
 package Test;
 
 public class User {
-    public String getName() {
+    public String getSer() {
         return name;
     }
 
