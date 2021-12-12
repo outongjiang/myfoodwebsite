@@ -1,7 +1,10 @@
-
 $(function () {
     var i=1;
     var animate;
+    $("#checkCodeid").click(function () {
+        var d=new Date();
+        this.src="CheckCode?cheat="+d.getTime();
+    });
     animate=setInterval(function(){
         if(i%2==0){
             $(".flush").css("font-size","30px");
