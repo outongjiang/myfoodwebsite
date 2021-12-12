@@ -7,7 +7,7 @@
   Time: 19:21
   To change this template use File | Settings | File Templates.
 --%>
-<%@ taglib prefix="c" uri="" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -21,9 +21,9 @@
 <%--    ${requestScope.u.ser}--%>
 <%--    <h1>${s}</h1>--%>
 <%
-    request.setAttribute("request-msg","张三");
-    ServletContext servletContext=request.getServletContext();
-    servletContext.setAttribute("application-msg","张三");
+    request.setAttribute("requestmsg","request-msg");
+    ServletContext servletContext=this.getServletConfig().getServletContext();
+    servletContext.setAttribute("applicationmsg","application-msg");
 %>
 
 </body>
