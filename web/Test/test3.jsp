@@ -12,9 +12,10 @@
 </head>
 <body>
     <form method="get" action="/vd/ServletTest1">
-        name<input name="Name" type="text"><br>
-        age<input name="Age" type="text"><br>
-        phone<input name="Phone" type="text"><br>
+        name<input name="name" type="text"><br>
+        age<input name="age" type="text"><br>
+        phone<input name="phone" type="text"><br>
+        role<input name="role" type="text"><br>
         <input type="submit" value="submit">
     </form>
 </body>

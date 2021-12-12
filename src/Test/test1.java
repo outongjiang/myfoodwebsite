@@ -14,13 +14,19 @@ import java.util.Map;
 class student{
      String Name;
      Integer Age;
+     String role;
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     @Override
     public String toString() {
         return "student{" +
-                "name='" + Name + '\'' +
-                ", age=" + Age +
-                ", phone='" + Phone + '\'' +
+                "Name='" + Name + '\'' +
+                ", Age=" + Age +
+                ", role='" + role + '\'' +
+                ", Phone='" + Phone + '\'' +
                 '}';
     }
 

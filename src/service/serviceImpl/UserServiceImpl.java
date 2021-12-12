@@ -3,7 +3,6 @@ import dataAccessObject.UserDao;
 import model.User;
 import service.UserService;
 import util.JDBC;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
