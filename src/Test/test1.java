@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Map;
 
 class student{
-     String Name;
-     Integer Age;
+     String name;
+     Integer age;
      String role;
 
     public void setRole(String role) {
@@ -23,26 +23,26 @@ class student{
     @Override
     public String toString() {
         return "student{" +
-                "Name='" + Name + '\'' +
-                ", Age=" + Age +
+                "Name='" +name + '\'' +
+                ", Age=" + age +
                 ", role='" + role + '\'' +
-                ", Phone='" + Phone + '\'' +
+                ", Phone='" + phone + '\'' +
                 '}';
     }
 
     public void setName(String name) {
-        this.Name = name;
+        this.name = name;
     }
 
     public void setAge(Integer age) {
-        this.Age = age;
+        this.age = age;
     }
 
     public void setPhone(String phone) {
-        this.Phone = phone;
+        this.phone = phone;
     }
 
-    String Phone;
+    String phone;
 
 }
 public class test1 {
@@ -60,9 +60,9 @@ public class test1 {
             int flag=1;
             if(c.getDeclaredField(key).getType().toString().contains("Integer")) {
                 System.out.println(c.getDeclaredField(key).getType().toString());
-                m = c.getMethod("set" + key, Integer.class);
+                m = c.getMethod("set" + key.replace(key.split("")[0],key.split("")[0].toUpperCase()), Integer.class);
             }else {
-                m = c.getMethod("set" + key, String.class);
+                m = c.getMethod("set" + key.replace(key.split("")[0],key.split("")[0].toUpperCase()), String.class);
                 flag=2;
             }
             for(String value:params.get(key)) {
