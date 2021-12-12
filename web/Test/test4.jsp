@@ -11,6 +11,9 @@
     <title>Title</title>
 </head>
 <body>
-
+    <% %>
+    <% request.setAttribute("u",);%>
+    ${}
+    <h1>${s}</h1>
 </body>
 </html>
