@@ -19,6 +19,7 @@ public class FoodListServlet extends HttpServlet {
         FoodService foodService=new FoodServiceImpl();
         List<Food> foods =foodService.findFood();
         req.setAttribute("foods",foods);
+        System.out.println(foods);
         req.getRequestDispatcher("/foodList.jsp").forward(req,resp);
     }
 

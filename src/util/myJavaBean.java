@@ -52,7 +52,7 @@ public class myJavaBean {
                     m=c.getDeclaredMethod("set"+field.getName().replace(field.getName().split("")[0],field.getName().split("")[0].toUpperCase()),String.class);
                     m.invoke(object,rs.getString(i));
                 }
-
+                i++;
             }
             params.add((T)object);
         }

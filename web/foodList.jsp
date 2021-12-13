@@ -26,12 +26,12 @@
         <th>食物价格</th>
         <th>食物数量</th>
     </tr>
-    <c:forEach items="${requestScope.list}" var="list" varStatus="s">
+    <c:forEach items="${requestScope.foods}" var="food" varStatus="s">
     <tr>
         <td>${s.index}</td>
-        <td>${list[1]}</td>
-        <td>${list[2]}</td>
-        <td>${list[3]}</td>
+        <td>${food.name}</td>
+        <td>${food.price}</td>
+        <td>${food.num}</td>
     </tr>
     </c:forEach>
 </table>
