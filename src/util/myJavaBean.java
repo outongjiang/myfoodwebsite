@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
+//把前端页面获取到数据集映射到对象里面
 public class myJavaBean {
     public static void setFields(Object object, Map<String,String[]> params) throws Exception {
         Class c=object.getClass();
@@ -35,6 +35,7 @@ public class myJavaBean {
 
         }
     }
+    //把查询到结果集映射到对象集合里面
     public static <T>List<T> Result_List(ResultSet rs, Class c) throws SQLException, NoSuchFieldException, InvocationTargetException, IllegalAccessException, InstantiationException {
         List<T> params=new ArrayList<>();
         Object object=c.newInstance();
