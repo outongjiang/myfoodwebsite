@@ -36,23 +36,23 @@ public class myJavaBean {
         }
     }
     //把查询到结果集映射到对象集合里面
-    public static <T>List<T> Result_List(ResultSet rs, Class c) throws SQLException, NoSuchFieldException, InvocationTargetException, IllegalAccessException, InstantiationException {
+    public static <T>List<T> Result_List(ResultSet rs, Class c) throws SQLException, NoSuchFieldException, InvocationTargetException, IllegalAccessException, InstantiationException, NoSuchMethodException {
         List<T> params=new ArrayList<>();
         Object object=c.newInstance();
+        Method m=null;
         int i=-1;
         while (rs.next()){
             object=new Food();
             i=1;
-            for(Method m:c.getDeclaredMethods()){
-                if(!m.getName().contains("set"))
-                    continue;
-                Field field=c.getField(m.getName().split("set")[1].toLowerCase());
+            for(Field field:c.getDeclaredFields()){
                 if(field.getType().toString().contains("Integer")){
+                    m=c.getDeclaredMethod("set"+field.getName().replace(field.getName().split("")[0],field.getName().split("")[0].toUpperCase()),Integer.class);
                     m.invoke(object,rs.getInt(i));
                 }else{
+                    m=c.getDeclaredMethod("set"+field.getName().replace(field.getName().split("")[0],field.getName().split("")[0].toUpperCase()),String.class);
                     m.invoke(object,rs.getString(i));
                 }
-                i++;
+
             }
             params.add((T)object);
         }

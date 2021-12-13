@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %><!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,12 +26,14 @@
         <th>食物价格</th>
         <th>食物数量</th>
     </tr>
+    <c:forEach items="${requestScope.list}" var="list" varStatus="s">
     <tr>
-        <td>食物编号</td>
-        <td>食物名称</td>
-        <td>食物价格</td>
-        <td>食物数量</td>
+        <td>${s.index}</td>
+        <td>${list[1]}</td>
+        <td>${list[2]}</td>
+        <td>${list[3]}</td>
     </tr>
+    </c:forEach>
 </table>
 </body>
 </html>
