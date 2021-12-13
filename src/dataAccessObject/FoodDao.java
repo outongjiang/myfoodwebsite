@@ -19,6 +19,7 @@ public class FoodDao {
     public List<Food> findFood() throws SQLException {
         String sql="select * from food";
         ResultSet rs=JDBC.select(sql,null);
-        return myJavaBean.Result_List(rs,Food.class,new Food());
+//        return myJavaBean.Result_List(rs,Food.class,new Food());
+        return null;
     }
 }
