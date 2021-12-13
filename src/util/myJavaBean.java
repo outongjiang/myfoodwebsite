@@ -1,5 +1,10 @@
 package util;
+import model.Food;
+
 import java.lang.reflect.Method;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class myJavaBean {
@@ -26,5 +31,16 @@ public class myJavaBean {
             }
 
         }
+    }
+    public static <T>List<T> Result_List(ResultSet rs, Class c,T t){
+        List<Food> params=new ArrayList<>();
+        Food food=null;
+//        while (rs.next()){
+//            food=new Food();
+//            food.setId(rs.);
+//        }
+        return null;
+//        JDBC.Close();
+//        return params;
     }
 }
