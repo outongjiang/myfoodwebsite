@@ -15,7 +15,7 @@
 </head>
 <frameset rows="20%,*" border="0" bordercolor="black">
     <frame src="nav.jsp"  scrolling="no" noresize name="nav" marginwidth=0px marginheight=0px>
-    <frame src="foodList.jsp" name="body" scrolling="no" noresize  marginwidth=0px marginheight=0px>
+    <frame src="addFood.jsp" name="body" scrolling="no" noresize  marginwidth=0px marginheight=0px>
 </frameset>
 <body>
 </body>
