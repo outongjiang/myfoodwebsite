@@ -14,7 +14,7 @@ public class FoodServiceImpl implements FoodService{
         List<Object>params=new ArrayList<>();
         params.add(food.getName());
         params.add(food.getPrice());
-        params.add(food.getId());
+        params.add(food.getNum());
         foodDao.addFood(food,params);
     }
 }

@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="./cssFile/addFood.css">
 </head>
 <body>
-<form class="form-horizontal">
+<form class="form-horizontal" method="post" action="addFoodServlet">
     <div class="form-group">
         <label for="inputEmail3" class="col-sm-2 control-label"></label>
         <div class="col-sm-10">

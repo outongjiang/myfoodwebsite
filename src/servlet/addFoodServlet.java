@@ -16,6 +16,8 @@ import java.util.Map;
 public class addFoodServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+            req.setCharacterEncoding("utf-8");
+            resp.setCharacterEncoding("utf-8");
             Map<String,String[]> map=req.getParameterMap();
             Food food=new Food();
             try {
@@ -25,6 +27,7 @@ public class addFoodServlet extends HttpServlet {
             }
             FoodService foodService=new FoodServiceImpl();
             foodService.addFood(food);
+            System.out.println(food);
             resp.sendRedirect(req.getContextPath()+"/addFood.jsp");
     }
 }

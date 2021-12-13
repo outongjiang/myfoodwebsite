@@ -19,6 +19,8 @@ public class myJavaBean {
                 if(flag==2) {
                     m.invoke(object, value);
                 }else{
+                    if("".equals(value))
+                        continue;
                     m.invoke(object, Integer.valueOf(value));
                 }
             }
