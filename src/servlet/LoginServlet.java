@@ -33,6 +33,6 @@ public class LoginServlet extends HttpServlet {
             req.getSession().setAttribute("loginStatus","-1");
             //验证码错误
         }
-        resp.sendRedirect("/vd/Test/Welcome.jsp");
+        resp.sendRedirect(req.getContextPath()+"/home.jsp");
     }
 }
