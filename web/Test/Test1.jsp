@@ -9,9 +9,15 @@
 <html>
 <head>
     <title>Title</title>
+    <script>
+        function x() {
+            if(confirm("faa")){
+                ${pageContext.session.setAttribute("msg","info")}
+            }
+        }
+    </script>
 </head>
 <body>
-   <%request.setAttribute("msg","xxoo");
-   request.getRequestDispatcher("/Test/Test2.jsp").forward(request,response);%>
+
 </body>
 </html>
