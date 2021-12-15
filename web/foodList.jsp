@@ -51,7 +51,7 @@
             <td><input class="foodPropertiesWidth" type="text" value="${food.price}"></td>
             <td><input class="foodPropertiesWidth" type="text" value="${food.num}"></td>
             <td>
-                <button id="update">编辑</button>&nbsp;&nbsp;&nbsp;
+                <button id="${food.id}" onclick="f('${food.id}')">编辑</button>&nbsp;&nbsp;&nbsp;
                 <button>删除</button>
             </td>
         </tr>
