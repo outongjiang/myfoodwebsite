@@ -26,8 +26,6 @@ public class LoginFilter implements Filter {
         }else if("-2".equals(req.getSession().getAttribute("loginStatus"))){
             resp.sendRedirect(req.getContextPath()+"/login.jsp");
         } else{
-            if(req.getSession().getAttribute("inputStatus")==null)
-            req.getSession().setAttribute("inputStatus",new ArrayList<Object>());
             filterChain.doFilter(req,resp);
         }
 

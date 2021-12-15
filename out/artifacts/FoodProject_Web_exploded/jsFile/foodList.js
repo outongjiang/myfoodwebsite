@@ -3,6 +3,7 @@ $(function() {
     init_input.attr("readOnly", true);
     init_input.attr("disabled", true);
     init_input.addClass("foodProperties_border");
+
 })
 function f(id1,name,price,num) {
     var id = "#" + id1;
@@ -13,14 +14,15 @@ function f(id1,name,price,num) {
         input.removeClass("foodProperties_border");
         input.focus();
         $(id).html("完成");
+        ${sessionScope.inputStatus.add(id1)}
     }else{
         var input =$(id).parent().parent().children("td").children("input[type='text']");
-        input.attr("readOnly", true);
-        input.attr("disabled", true);
+        input.prop("readOnly", true);
+        input.prop("disabled", true);
         input.addClass("foodProperties_border");
         // input.focus();
         $(id).html("编辑");
+        ${sessionScope.inputStatus.remove(id1)}
         self.location.href ="/vd/UpdateFoodServlet?id="+id1+"&name="+input.eq(1).val()+"&price="+input.eq(2).val()+"&num="+input.eq(3).val();
-
     }
 }
