@@ -17,6 +17,7 @@ import java.util.Map;
 public class UpdateFoodServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String,String[]>map=request.getParameterMap();
+        System.out.println(map);
         Food food=new Food();
         try {
             myJavaBean.setFields(food,map);
@@ -25,7 +26,7 @@ public class UpdateFoodServlet extends HttpServlet {
         }
         FoodService foodService=new FoodServiceImpl();
         foodService.updateFood(food);
-        response.sendRedirect(request.getContextPath()+"/foodList.jsp");
+        response.sendRedirect(request.getContextPath()+"/FoodListServlet");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
