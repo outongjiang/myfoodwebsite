@@ -15,7 +15,7 @@ public class UpdateFoodServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
        String foodid=request.getParameter("foodid");
         FoodService foodService=new FoodServiceImpl();
-        foodService.updateFood();
+        foodService.updateFood(foodid);
         response.sendRedirect(request.getContextPath()+"/foodList.jsp");
     }
 

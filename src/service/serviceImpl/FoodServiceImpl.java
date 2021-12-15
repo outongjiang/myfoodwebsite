@@ -27,4 +27,9 @@ public class FoodServiceImpl implements FoodService{
         }
         return null;
     }
+
+    @Override
+    public void updateFood(String foodid) {
+
+    }
 }
