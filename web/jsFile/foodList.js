@@ -21,7 +21,7 @@ function f(id1) {
         input.addClass("foodProperties_border");
         // input.focus();
         $(id).html("编辑");
-        top.location.href ="/UpdateFoodServlet?foodid="+id1;
+        parent.location.href ="/vd/UpdateFoodServlet?foodid="+id1;
     }
 
 
