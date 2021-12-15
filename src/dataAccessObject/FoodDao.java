@@ -35,4 +35,10 @@ public class FoodDao {
         }
         return null;
     }
+
+    public void updateFood(List<Object>list) {
+        String sql="update food set name=?,price=?,num=? where id=?";
+        JDBC.update(sql,list);
+        JDBC.Close();
+    }
 }

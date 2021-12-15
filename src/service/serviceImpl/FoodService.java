@@ -9,5 +9,5 @@ public interface FoodService {
 
     List<Food> findFood();
 
-    void updateFood(String foodid);
+    void updateFood(Food food);
 }

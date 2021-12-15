@@ -5,23 +5,23 @@ $(function() {
     init_input.addClass("foodProperties_border");
 })
 
-function f(id1) {
+function f(id1,name,price,num) {
     var id = "#" + id1;
-    if ($(id).html() == "编辑") {
+    if($(id).html() == "编辑"){
         var input = $(id).parent().parent().children("td").children("input[type='text']");
         input.attr("readOnly", false);
         input.attr("disabled", false);
         input.removeClass("foodProperties_border");
         input.focus();
         $(id).html("完成");
-    } else {
+    }else{
         var input = $(id).parent().parent().children("td").children("input[type='text']");
         input.attr("readOnly", true);
         input.attr("disabled", true);
         input.addClass("foodProperties_border");
         // input.focus();
         $(id).html("编辑");
-        parent.location.href ="/vd/UpdateFoodServlet?foodid="+id1;
+        parent.location.href ="/vd/UpdateFoodServlet?foodid="+id1+"&name="+name+"&price="+price+"&num="+num;
     }
 
 
