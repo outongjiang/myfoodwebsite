@@ -1,0 +1,31 @@
+
+th,td{
+    text-align: center;
+}
+.inputWidth {
+    width: 250px !important;
+    margin-right: 20px;
+}
+
+.findBtn {
+    width: 100px !important;
+    background: fff;
+    color: black
+}
+
+.hiddenSpan {
+    background: rgb(255, 255, 255);
+    border: none;
+}  .foodPropertiesWidth {
+       width: 70px !important;
+       border: 2px solid black;
+   }
+
+.foodPropertiesWidth2 {
+    width: 100px !important;
+    border: 2px solid black;
+}
+
+.foodProperties_border {
+    border: none;
+}
