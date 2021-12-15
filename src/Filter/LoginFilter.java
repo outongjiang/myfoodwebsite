@@ -17,11 +17,13 @@ public class LoginFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse HttpServletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req=(HttpServletRequest)servletRequest;
         HttpServletResponse resp=(HttpServletResponse)HttpServletResponse;
+        if(req.getSession().getAttribute("loginStatus")==null)
+            resp.sendRedirect(req.getContextPath()+"/login.jsp");
         if("-1".equals(req.getSession().getAttribute("loginStatus"))){
             resp.sendRedirect(req.getContextPath()+"/login.jsp");
         }else if("-2".equals(req.getSession().getAttribute("loginStatus"))){
             resp.sendRedirect(req.getContextPath()+"/login.jsp");
-        }else{
+        } else{
 
             filterChain.doFilter(req,resp);
         }

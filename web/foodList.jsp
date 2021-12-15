@@ -18,6 +18,40 @@
     <script src="./bootstrap-js-插件/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./cssFile/foodList.css">
     <script src="./jsFile/foodList.js"></script>
+    <script>
+        function f(id1,name,price,num) {
+            var id = "#" + id1;
+            if($(id).html() == "编辑"){
+                var input = $(id).parent().parent().children("td").children("input[type='text']").not("#bkbj");
+                input.attr("readOnly", false);
+                input.attr("disabled", false);
+                input.removeClass("foodProperties_border");
+                input.focus();
+                $(id).html("完成");
+                ${cookie.put(id1,"y")}
+            }else{
+                var input =$(id).parent().parent().children("td").children("input[type='text']");
+                input.prop("readOnly", true);
+                input.prop("disabled", true);
+                input.addClass("foodProperties_border");
+                // input.focus();
+                $(id).html("编辑");
+                self.location.href ="/vd/UpdateFoodServlet?id="+id1+"&name="+input.eq(1).val()+"&price="+input.eq(2).val()+"&num="+input.eq(3).val();
+
+            }
+        }
+        $(function () {
+            <c:forEach items="${sessionScope.inputStatus}" var="inputStatus">
+            var id="#"+inputStatus;
+            var input = $(id).parent().parent().children("td").children("input[type='text']").not("#bkbj");
+            input.attr("readOnly", false);
+            input.attr("disabled", false);
+            input.removeClass("foodProperties_border");
+            input.focus();
+            $(id).html("完成");
+            </c:forEach>
+        })
+    </script>
 </head>
 <body>
 <div class="container-fluid">
