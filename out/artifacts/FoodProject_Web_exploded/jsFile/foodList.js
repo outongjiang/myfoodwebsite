@@ -14,7 +14,6 @@ function f(id1,name,price,num) {
         input.removeClass("foodProperties_border");
         input.focus();
         $(id).html("完成");
-        ${sessionScope.inputStatus.add(id1)}
     }else{
         var input =$(id).parent().parent().children("td").children("input[type='text']");
         input.prop("readOnly", true);
@@ -22,7 +21,6 @@ function f(id1,name,price,num) {
         input.addClass("foodProperties_border");
         // input.focus();
         $(id).html("编辑");
-        ${sessionScope.inputStatus.remove(id1)}
         self.location.href ="/vd/UpdateFoodServlet?id="+id1+"&name="+input.eq(1).val()+"&price="+input.eq(2).val()+"&num="+input.eq(3).val();
     }
 }
