@@ -17,6 +17,7 @@
     <script src="./bootstrap-js-插件/js/jquery-3.2.1.min.js"></script>
     <script src="./bootstrap-js-插件/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./cssFile/foodList.css">
+    <script src="./jsFile/foodList.js"></script>
 </head>
 <body>
 <div class="container-fluid">
