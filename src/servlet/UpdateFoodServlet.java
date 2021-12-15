@@ -1,5 +1,8 @@
 package servlet;
 
+import service.serviceImpl.FoodService;
+import service.serviceImpl.FoodServiceImpl;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,10 +13,13 @@ import java.io.IOException;
 @WebServlet("/UpdateFoodServlet")
 public class UpdateFoodServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+       String foodid=request.getParameter("foodid");
+        FoodService foodService=new FoodServiceImpl();
+        foodService.updateFood();
+        response.sendRedirect(request.getContextPath()+"/foodList.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("进来了"+request.getParameter("foodid"));
+        doPost(request,response);
     }
 }
