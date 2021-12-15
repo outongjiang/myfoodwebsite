@@ -38,11 +38,11 @@ public class myJavaBean {
     //把查询到结果集映射到对象集合里面
     public static <T>List<T> Result_List(ResultSet rs, Class c) throws SQLException, NoSuchFieldException, InvocationTargetException, IllegalAccessException, InstantiationException, NoSuchMethodException {
         List<T> params=new ArrayList<>();
-        Object object=c.newInstance();
+        Object object=null;
         Method m=null;
         int i=-1;
         while (rs.next()){
-            object=new Food();
+            object=c.newInstance();
             i=1;
             for(Field field:c.getDeclaredFields()){
                 if(field.getType().toString().contains("Integer")){
