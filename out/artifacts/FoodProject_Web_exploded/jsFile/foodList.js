@@ -5,8 +5,8 @@ $(function() {
     init_input.addClass("foodProperties_border");
 })
 
-function f(id) {
-    id = "#" + id;
+function f(id1) {
+    var id = "#" + id1;
     if ($(id).html() == "编辑") {
         var input = $(id).parent().parent().children("td").children("input[type='text']");
         input.attr("readOnly", false);
@@ -21,6 +21,8 @@ function f(id) {
         input.addClass("foodProperties_border");
         // input.focus();
         $(id).html("编辑");
+        parent.location.href ="/UpdateFoodServlet?foodid="+id1;
     }
+
 
 }
