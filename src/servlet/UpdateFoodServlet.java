@@ -17,7 +17,12 @@ import java.util.Map;
 public class UpdateFoodServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String,String[]>map=request.getParameterMap();
-        System.out.println(map);
+        for(String k:map.keySet()){
+            for(String e:map.get(k)){
+                System.out.println(e);
+            }
+        }
+        System.out.println();
         Food food=new Food();
         try {
             myJavaBean.setFields(food,map);
