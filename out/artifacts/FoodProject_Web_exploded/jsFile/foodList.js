@@ -4,11 +4,10 @@ $(function() {
     init_input.attr("disabled", true);
     init_input.addClass("foodProperties_border");
 })
-
 function f(id1,name,price,num) {
     var id = "#" + id1;
     if($(id).html() == "编辑"){
-        var input = $(id).parent().parent().children("td").children("input[type='text']");
+        var input = $(id).parent().parent().children("td").children("input[type='text']").not("#bkbj");
         input.attr("readOnly", false);
         input.attr("disabled", false);
         input.removeClass("foodProperties_border");
