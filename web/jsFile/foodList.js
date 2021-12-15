@@ -22,5 +22,6 @@ function f(id1) {
         // input.focus();
         $(id).html("编辑");
     }
-    location.assign("updateFoodServlet?foodid="+id1);
+    window.location.href ="updateFoodServlet?foodid="+id1;
+
 }
