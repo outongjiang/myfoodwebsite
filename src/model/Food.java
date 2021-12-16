@@ -5,6 +5,7 @@ public class Food {
     private String name;
     private Integer price;
     private Integer num;
+    private String status;
 
     @Override
     public String toString() {
@@ -13,6 +14,7 @@ public class Food {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", num=" + num +
+                ", status='" + status + '\'' +
                 '}';
     }
 
@@ -43,6 +45,22 @@ public class Food {
         this.price = price;
     }
 
+    public Food(Integer id, String name, Integer price, Integer num, String status) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.num = num;
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public Integer getNum() {
         return num;
     }
@@ -51,12 +69,7 @@ public class Food {
         this.num = num;
     }
 
-    public Food(Integer id, String name, Integer price, Integer num) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-        this.num = num;
-    }
+
 
 
 }

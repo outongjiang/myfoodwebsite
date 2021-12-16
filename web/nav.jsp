@@ -22,6 +22,7 @@
     <li role="presentation" class=""><a href="${pageContext.request.contextPath}/FoodListServlet" target="body">查询菜肴</a></li>
     <li role="presentation" class="active"><a href="${pageContext.request.contextPath}/addFood.jsp" target="body">添加菜肴</a></li>
     <li role="presentation"><a href=${pageContext.request.contextPath}+"/userInfo.jsp" target="body">客户信息</a></li>
+    <li role="presentation"><a href=${pageContext.request.contextPath}+"/userInfo.jsp" target="body">管理员信息</a></li>
 </ul>
 </body>
 </html>

@@ -6,12 +6,12 @@ public class User {
     public User() {
     }
 
-    public User(int userid, String username, String password, String phone, String status, String role) {
+    public User(int userid, String username, String password, String phone, String role) {
         this.userid = userid;
         this.username = username;
         this.password = password;
         this.phone = phone;
-        this.status = status;
+
         this.role = role;
     }
 
@@ -22,7 +22,7 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +
-                ", status='" + status + '\'' +
+
                 ", role='" + role + '\'' +
                 '}';
     }
@@ -30,7 +30,7 @@ public class User {
     private String username;
     private String password;
     private String phone;
-    private String status;
+
     private String role;
 
     public int getUserid() {
@@ -65,13 +65,7 @@ public class User {
         this.phone = phone;
     }
 
-    public String getStatus() {
-        return status;
-    }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
 
     public String getRole() {
         return role;
