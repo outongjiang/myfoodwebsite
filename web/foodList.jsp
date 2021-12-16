@@ -23,16 +23,26 @@
 <div class="container-fluid">
     <div class="row">
         <div class="input-group col-lg-6">
+            <form method="get" action="FoodListServlet">
+
+            <input name="id" type="hidden" class="inputWidth form-control" placeholder="食物名称">
+
             <span class="input-group-addon" id="basic-addon1">食物名称</span>
             <input name="name" type="text" class="inputWidth form-control" placeholder="食物名称">
+
             <span class="input-group-addon" id="basic-addon1">食物价格</span>
             <input name="price" type="text" class="inputWidth form-control " placeholder="食物价格" aria-describedby="basic-addon1">
+
             <span class="input-group-addon" id="basic-addon1">食物数量</span>
             <input name="num" type="text" class="inputWidth form-control " placeholder="食物数量" aria-describedby="basic-addon1">
+
             <span class="input-group-addon hiddenSpan" id="basic-addon1"></span>
             <input type="submit" class="findBtn form-control " aria-describedby="basic-addon1" value="查询">
+
             <span class="input-group-addon hiddenSpan" id="basic-addon1"></span>
             <button class="findBtn form-control " aria-describedby="basic-addon1"><a href="dels()">删除选中</a></button>
+
+            </form>
         </div>
 
     </div>
