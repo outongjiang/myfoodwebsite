@@ -11,5 +11,5 @@ public interface FoodService {
 
     void updateFood(Food food);
 
-    void deleteFood(String id);
+    void deleteFood(String[] id);
 }

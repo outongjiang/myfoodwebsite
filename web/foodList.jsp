@@ -47,7 +47,7 @@
     <form action="DeleteFoodServlet" method="get">
     <c:forEach items="${sessionScope.foods}" var="food" varStatus="s">
         <tr>
-            <td><input name="id" value="" type="checkbox"></td>
+            <td><input name="id" value="${food.id}" type="checkbox"></td>
             <td><input name="" id="bkbj" class="foodPropertiesWidth" type="text" value="${s.index}"></td>
             <td><input name="" class="foodPropertiesWidth2" type="text" value="${food.name}"></td>
             <td><input name="price" class="foodPropertiesWidth" type="text" value="${food.price}"></td>

@@ -43,7 +43,12 @@ public class FoodDao {
     }
 
     public void deleteFood(List<Object> params) {
-        String sql="delete from food where id=?";
-        JDBC.update(sql,params);
+        StringBuffer sql=new StringBuffer("delete from food where id=?");
+        if(params.size()!=1) {
+            for (int i = 1; i < params.size(); i++) {
+                sql.append(" or id=? ");
+            }
+        }
+        JDBC.update(sql.toString(),params);
     }
 }
