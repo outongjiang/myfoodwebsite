@@ -24,11 +24,11 @@
     <div class="row">
         <div class="input-group col-lg-6">
             <span class="input-group-addon" id="basic-addon1">食物名称</span>
-            <input type="text" class="inputWidth form-control" placeholder="食物名称">
+            <input name="name" type="text" class="inputWidth form-control" placeholder="食物名称">
             <span class="input-group-addon" id="basic-addon1">食物价格</span>
-            <input type="text" class="inputWidth form-control " placeholder="食物价格" aria-describedby="basic-addon1">
+            <input name="price" type="text" class="inputWidth form-control " placeholder="食物价格" aria-describedby="basic-addon1">
             <span class="input-group-addon" id="basic-addon1">食物数量</span>
-            <input type="text" class="inputWidth form-control " placeholder="食物数量" aria-describedby="basic-addon1">
+            <input name="num" type="text" class="inputWidth form-control " placeholder="食物数量" aria-describedby="basic-addon1">
             <span class="input-group-addon hiddenSpan" id="basic-addon1"></span>
             <input type="submit" class="findBtn form-control " aria-describedby="basic-addon1" value="查询">
             <span class="input-group-addon hiddenSpan" id="basic-addon1"></span>
