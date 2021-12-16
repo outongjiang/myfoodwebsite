@@ -52,3 +52,8 @@ function edit(id1) {
         self.location.href ="/vd/UpdateFoodServlet?id="+id1+"&name="+input.eq(1).val()+"&price="+input.eq(2).val()+"&num="+input.eq(3).val();
     }
 }
+function dels() {
+    if(confirm("您确定要删除选中的选项吗?")) {
+        $("#dels").submit();
+    }
+}

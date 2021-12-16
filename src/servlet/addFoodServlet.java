@@ -1,5 +1,4 @@
 package servlet;
-
 import model.Food;
 import service.serviceImpl.FoodService;
 import service.serviceImpl.FoodServiceImpl;
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Map;
-
 @WebServlet("/addFoodServlet")
 public class addFoodServlet extends HttpServlet {
     @Override
