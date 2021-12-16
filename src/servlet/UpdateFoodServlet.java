@@ -2,6 +2,7 @@ package servlet;
 import model.Food;
 import service.serviceImpl.FoodService;
 import service.serviceImpl.FoodServiceImpl;
+import util.JDBC;
 import util.myJavaBean;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,5 +34,9 @@ public class UpdateFoodServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request,response);
+    }
+    @Override
+    public void destroy() {
+        JDBC.Close();
     }
 }

@@ -1,6 +1,8 @@
 package servlet;
 import model.User;
 import service.serviceImpl.UserServiceImpl;
+import util.JDBC;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,5 +36,9 @@ public class LoginServlet extends HttpServlet {
             //验证码错误
         }
         resp.sendRedirect(req.getContextPath()+"/home.jsp");
+    }
+    @Override
+    public void destroy() {
+        JDBC.Close();
     }
 }

@@ -37,4 +37,11 @@ public class FoodServiceImpl implements FoodService{
         list.add(food.getId());
         foodDao.updateFood(list);
     }
+
+    @Override
+    public void deleteFood(String id) {
+        List<Object>params=new ArrayList<>();
+        params.add(Integer.valueOf(id));
+        foodDao.deleteFood(params);
+    }
 }

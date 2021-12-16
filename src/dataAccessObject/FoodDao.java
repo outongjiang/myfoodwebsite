@@ -14,7 +14,7 @@ public class FoodDao {
     public void addFood(Food food, List<Object> params) {
         String sql="insert into food values(null,?,?,?)";
         JDBC.update(sql,params);
-        JDBC.Close();
+
     }
 
     public List<Food> findFood() throws SQLException {
@@ -39,6 +39,12 @@ public class FoodDao {
     public void updateFood(List<Object>list) {
         String sql="update food set name=?,price=?,num=? where id=?";
         JDBC.update(sql,list);
-        JDBC.Close();
+
+    }
+
+    public void deleteFood(List<Object> params) {
+        String sql="delete from food where id=?";
+        JDBC.update(sql,params);
+
     }
 }

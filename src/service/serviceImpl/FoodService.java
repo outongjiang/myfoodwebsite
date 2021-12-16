@@ -10,4 +10,6 @@ public interface FoodService {
     List<Food> findFood();
 
     void updateFood(Food food);
+
+    void deleteFood(String id);
 }

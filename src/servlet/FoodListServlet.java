@@ -3,6 +3,7 @@ package servlet;
 import model.Food;
 import service.serviceImpl.FoodService;
 import service.serviceImpl.FoodServiceImpl;
+import util.JDBC;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,5 +28,9 @@ public class FoodListServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.getWriter().write("foodList");
+    }
+    @Override
+    public void destroy() {
+        JDBC.Close();
     }
 }

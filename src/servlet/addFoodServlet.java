@@ -3,6 +3,7 @@ package servlet;
 import model.Food;
 import service.serviceImpl.FoodService;
 import service.serviceImpl.FoodServiceImpl;
+import util.JDBC;
 import util.myJavaBean;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,5 +30,9 @@ public class addFoodServlet extends HttpServlet {
             foodService.addFood(food);
             System.out.println(food);
             resp.sendRedirect(req.getContextPath()+"/addFood.jsp");
+    }
+    @Override
+    public void destroy() {
+        JDBC.Close();
     }
 }
