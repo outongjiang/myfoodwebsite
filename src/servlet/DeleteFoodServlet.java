@@ -14,8 +14,6 @@ public class DeleteFoodServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String []id=req.getParameterValues("id");
-        System.out.println(Arrays.toString(id));
-        System.out.println(Arrays.toString(id));
         //没有要删除的选项
         if(id==null){
             resp.sendRedirect(req.getContextPath()+"/FoodListServlet");

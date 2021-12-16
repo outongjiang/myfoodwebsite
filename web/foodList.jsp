@@ -51,7 +51,7 @@
 </form>
 <table class="table table-bordered">
     <tr>
-        <th><input id="firstcheckbox" type="checkbox"></th>
+        <th><sapn>全选</sapn><input id="firstcheckbox" type="checkbox"></th>
         <th>食物编号</th>
         <th>食物名称</th>
         <th>食物价格</th>
@@ -67,8 +67,8 @@
             <td><input name="price" class="foodPropertiesWidth" type="text" value="${food.price}"></td>
             <td><input name="num" class="foodPropertiesWidth" type="text" value="${food.num}"></td>
             <td>
-                <button id="${food.id}" type="button" onclick="javascript:edit(${food.id})">编辑</button>&nbsp;&nbsp;&nbsp;
-                <button type="button" onclick="javascript:del(${food.id})">删除</button>
+                <button id="${food.id}" type="button" onclick="javascript:edit('${food.id}')">编辑</button>&nbsp;&nbsp;&nbsp;
+                <button type="button" onclick="del(${food.id})">删除</button>
             </td>
         </tr>
     </c:forEach>
