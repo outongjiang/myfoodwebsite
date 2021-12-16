@@ -4,8 +4,33 @@ $(function() {
     init_input.attr("disabled", true);
     init_input.addClass("foodProperties_border");
 
+    $("#firstcheckbox").click(function() {
+        var checkboxs = $("input[type='checkbox']").not("#firstcheckbox");
+        if ($(this).prop("checked") == true) {
+            for (var i = 0; i < checkboxs.length; i++) {
+                if ($(checkboxs[i]).prop("checked") == false) {
+                    $(checkboxs[i]).prop("checked", true);
+                }
+            }
+        } else {
+
+            for (var i = 0; i < checkboxs.length; i++) {
+                if ($(checkboxs[i]).prop("checked") == true) {
+                    $(checkboxs[i]).prop("checked", false);
+                }
+            }
+
+        }
+
+    });
+
 })
-function f(id1,name,price,num) {
+function dels() {
+    if(confirm("您确定要删除选中项?")){
+        $("#dels").submit();
+    }
+}
+function edit(id1,name,price,num) {
     var id = "#" + id1;
     if($(id).html() == "编辑"){
         var input = $(id).parent().parent().children("td").children("input[type='text']").not("#bkbj");
@@ -22,5 +47,10 @@ function f(id1,name,price,num) {
         // input.focus();
         $(id).html("编辑");
         self.location.href ="/vd/UpdateFoodServlet?id="+id1+"&name="+input.eq(1).val()+"&price="+input.eq(2).val()+"&num="+input.eq(3).val();
+    }
+}
+function del(id1) {
+    if(confirm("您确定要删除该选项?")){
+        self.location.href ="/vd/DeleteFoodServlet?id="+id1;
     }
 }

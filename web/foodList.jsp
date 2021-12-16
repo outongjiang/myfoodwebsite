@@ -20,10 +20,11 @@
     <script src="./jsFile/foodList.js"></script>
 </head>
 <body>
+<form method="get" action="FoodListServlet">
 <div class="container-fluid">
     <div class="row">
         <div class="input-group col-lg-6">
-            <form method="get" action="FoodListServlet">
+
 
             <input name="id" type="hidden" class="inputWidth form-control" placeholder="食物名称">
 
@@ -42,11 +43,12 @@
             <span class="input-group-addon hiddenSpan" id="basic-addon1"></span>
             <button class="findBtn form-control " aria-describedby="basic-addon1"><a href="dels()">删除选中</a></button>
 
-            </form>
+
         </div>
 
     </div>
 </div>
+</form>
 <table class="table table-bordered">
     <tr>
         <th><input type="checkbox"></th>
