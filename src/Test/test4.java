@@ -8,10 +8,7 @@ import java.util.Arrays;
 
 public class test4 {
     public static void main(String[] args) {
-            for(Field m:Food.class.getDeclaredFields()){
-
-                System.out.println(m.getName());
-        }
-
+        String s="abcd";
+        System.out.println(s.split("")[0]);
     }
 }

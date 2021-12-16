@@ -18,9 +18,9 @@ public class myJavaBean {
             int flag=1;
             if(c.getDeclaredField(key).getType().toString().contains("Integer")) {
 //                System.out.println(c.getDeclaredField(key).getType().toString());
-                m = c.getMethod("set" + key.replace(key.split("")[0],key.split("")[0].toUpperCase()), Integer.class);
+                m = c.getMethod("set" + key.split("")[0].toUpperCase()+key.substring(1,key.length()), Integer.class);
             }else {
-                m = c.getMethod("set" + key.replace(key.split("")[0],key.split("")[0].toUpperCase()), String.class);
+                m = c.getMethod("set" + key.split("")[0].toUpperCase()+key.substring(1,key.length()), String.class);
                 flag=2;
             }
             if(params.get(key)==null)
@@ -47,11 +47,12 @@ public class myJavaBean {
             object=c.newInstance();
             i=1;
             for(Field field:c.getDeclaredFields()){
+                String fieldName=field.getName();
                 if(field.getType().toString().contains("Integer")){
-                    m=c.getDeclaredMethod("set"+field.getName().replace(field.getName().split("")[0],field.getName().split("")[0].toUpperCase()),Integer.class);
+                    m=c.getDeclaredMethod("set"+fieldName.split("0")[0].toUpperCase()+fieldName.substring(1,fieldName.length()),Integer.class);
                     m.invoke(object,rs.getInt(i));
                 }else{
-                    m=c.getDeclaredMethod("set"+field.getName().replace(field.getName().split("")[0],field.getName().split("")[0].toUpperCase()),String.class);
+                    m=c.getDeclaredMethod("set"+fieldName.split("0")[0].toUpperCase()+fieldName.substring(1,fieldName.length()),String.class);
                     m.invoke(object,rs.getString(i));
                 }
                 i++;
