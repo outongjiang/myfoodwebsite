@@ -45,6 +45,5 @@ public class FoodDao {
     public void deleteFood(List<Object> params) {
         String sql="delete from food where id=?";
         JDBC.update(sql,params);
-
     }
 }
