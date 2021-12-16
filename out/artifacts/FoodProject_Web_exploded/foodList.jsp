@@ -17,7 +17,7 @@
     <script src="./bootstrap-js-插件/js/jquery-3.2.1.min.js"></script>
     <script src="./bootstrap-js-插件/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./cssFile/foodList.css">
-    <script src="./jsFile/foodList.js"></script>
+   <script src="./jsFile/foodList.js"></script>
 </head>
 <body>
 <form method="get" action="FoodListServlet">
@@ -41,7 +41,7 @@
             <input type="submit" class="findBtn form-control " aria-describedby="basic-addon1" value="查询">
 
             <span class="input-group-addon hiddenSpan" id="basic-addon1"></span>
-            <button class="findBtn form-control " aria-describedby="basic-addon1"><a href="dels()">删除选中</a></button>
+            <button type="button" class="findBtn form-control " aria-describedby="basic-addon1" onclick="dels()">删除选中</button>
 
 
         </div>
@@ -51,14 +51,14 @@
 </form>
 <table class="table table-bordered">
     <tr>
-        <th><input type="checkbox"></th>
+        <th><input id="firstcheckbox" type="checkbox"></th>
         <th>食物编号</th>
         <th>食物名称</th>
         <th>食物价格</th>
         <th>食物数量</th>
         <th>更新</th>
     </tr>
-    <form id="dels" action="DeleteFoodServlet" method="get">
+    <form id="dels" action="${pageContext.request.contextPath}/DeleteFoodServlet" method="get">
     <c:forEach items="${sessionScope.foods}" var="food" varStatus="s">
         <tr>
             <td><input name="id" value="${food.id}" type="checkbox"></td>
@@ -67,8 +67,8 @@
             <td><input name="price" class="foodPropertiesWidth" type="text" value="${food.price}"></td>
             <td><input name="num" class="foodPropertiesWidth" type="text" value="${food.num}"></td>
             <td>
-                <button id="${food.id}" onclick="edit('${food.id}','${food.name}','${food.price}','${food.num}')">编辑</button>&nbsp;&nbsp;&nbsp;
-                <button onclick="del('${food.id}')">删除</button>
+                <button id="${food.id}" type="button" onclick="javascript:edit(${food.id})">编辑</button>&nbsp;&nbsp;&nbsp;
+                <button type="button" onclick="javascript:del(${food.id})">删除</button>
             </td>
         </tr>
     </c:forEach>

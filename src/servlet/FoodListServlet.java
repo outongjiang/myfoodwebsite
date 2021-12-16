@@ -26,8 +26,5 @@ public class FoodListServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.getWriter().write("foodList");
     }
-    @Override
-    public void destroy() {
-        JDBC.Close();
-    }
+
 }

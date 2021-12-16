@@ -49,6 +49,7 @@ public class FoodDao {
                 sql.append(" or id=? ");
             }
         }
+        System.out.println(sql.toString());
         JDBC.update(sql.toString(),params);
     }
 }

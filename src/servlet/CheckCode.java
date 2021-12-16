@@ -18,8 +18,5 @@ public class CheckCode extends HttpServlet {
         String codeValue=GraphicHelper.create(100,50,"jpg",os);
         req.getSession().setAttribute("checkCode",codeValue);
     }
-    @Override
-    public void destroy() {
-        JDBC.Close();
-    }
+
 }

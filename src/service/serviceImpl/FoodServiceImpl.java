@@ -2,6 +2,8 @@ package service.serviceImpl;
 
 import dataAccessObject.FoodDao;
 import model.Food;
+import util.JDBC;
+import util.myJavaBean;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -16,6 +18,7 @@ public class FoodServiceImpl implements FoodService{
         params.add(food.getPrice());
         params.add(food.getNum());
         foodDao.addFood(food,params);
+        JDBC.Close();
     }
 
     @Override
@@ -36,14 +39,16 @@ public class FoodServiceImpl implements FoodService{
         list.add(food.getNum());
         list.add(food.getId());
         foodDao.updateFood(list);
+        JDBC.Close();
     }
 
     @Override
-    public void deleteFood(String ids[]) {
-        List<Object>params=new ArrayList<>();
+    public void deleteFood(String []ids) {
+        List<Object>params=new ArrayList<Object>();
         for(String id:ids){
             params.add(Integer.valueOf(id));
         };
         foodDao.deleteFood(params);
+        JDBC.Close();
     }
 }

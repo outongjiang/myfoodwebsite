@@ -37,8 +37,5 @@ public class LoginServlet extends HttpServlet {
         }
         resp.sendRedirect(req.getContextPath()+"/home.jsp");
     }
-    @Override
-    public void destroy() {
-        JDBC.Close();
-    }
+
 }

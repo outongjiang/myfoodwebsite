@@ -24,4 +24,9 @@ public class ServletTest1 extends HttpServlet {
 
         System.out.println(student);
     }
+
+    @Override
+    public void destroy() {
+        System.out.println("destroy");
+    }
 }

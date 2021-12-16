@@ -31,8 +31,5 @@ public class addFoodServlet extends HttpServlet {
             System.out.println(food);
             resp.sendRedirect(req.getContextPath()+"/addFood.jsp");
     }
-    @Override
-    public void destroy() {
-        JDBC.Close();
-    }
+
 }
