@@ -31,6 +31,8 @@
             <input type="text" class="inputWidth form-control " placeholder="食物数量" aria-describedby="basic-addon1">
             <span class="input-group-addon hiddenSpan" id="basic-addon1"></span>
             <input type="submit" class="findBtn form-control " aria-describedby="basic-addon1" value="查询">
+            <span class="input-group-addon hiddenSpan" id="basic-addon1"></span>
+            <button class="findBtn form-control " aria-describedby="basic-addon1"><a href="dels()">删除选中</a></button>
         </div>
 
     </div>
@@ -44,7 +46,7 @@
         <th>食物数量</th>
         <th>更新</th>
     </tr>
-    <form action="DeleteFoodServlet" method="get">
+    <form id="dels" action="DeleteFoodServlet" method="get">
     <c:forEach items="${sessionScope.foods}" var="food" varStatus="s">
         <tr>
             <td><input name="id" value="${food.id}" type="checkbox"></td>

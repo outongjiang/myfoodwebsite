@@ -25,6 +25,11 @@ $(function() {
     });
 
 })
+function dels() {
+    if(confirm("您确定要删除选中项?")){
+        $("#dels").submit();
+    }
+}
 function edit(id1,name,price,num) {
     var id = "#" + id1;
     if($(id).html() == "编辑"){
