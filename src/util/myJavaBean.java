@@ -17,12 +17,14 @@ public class myJavaBean {
         for(String key:params.keySet()){
             int flag=1;
             if(c.getDeclaredField(key).getType().toString().contains("Integer")) {
-                System.out.println(c.getDeclaredField(key).getType().toString());
+//                System.out.println(c.getDeclaredField(key).getType().toString());
                 m = c.getMethod("set" + key.replace(key.split("")[0],key.split("")[0].toUpperCase()), Integer.class);
             }else {
                 m = c.getMethod("set" + key.replace(key.split("")[0],key.split("")[0].toUpperCase()), String.class);
                 flag=2;
             }
+            if(params.get(key)==null)
+                continue;
             for(String value:params.get(key)) {
                 if(flag==2) {
                     m.invoke(object, value);
