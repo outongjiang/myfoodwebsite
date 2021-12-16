@@ -4,6 +4,26 @@ $(function() {
     init_input.attr("disabled", true);
     init_input.addClass("foodProperties_border");
 
+    $("#firstcheckbox").click(function() {
+        var checkboxs = $("input[type='checkbox']").not("#firstcheckbox");
+        if ($(this).prop("checked") == true) {
+            for (var i = 0; i < checkboxs.length; i++) {
+                if ($(checkboxs[i]).prop("checked") == false) {
+                    $(checkboxs[i]).prop("checked", true);
+                }
+            }
+        } else {
+
+            for (var i = 0; i < checkboxs.length; i++) {
+                if ($(checkboxs[i]).prop("checked") == true) {
+                    $(checkboxs[i]).prop("checked", false);
+                }
+            }
+
+        }
+
+    });
+
 })
 function edit(id1,name,price,num) {
     var id = "#" + id1;
