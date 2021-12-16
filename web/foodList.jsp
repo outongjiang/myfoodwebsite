@@ -52,8 +52,8 @@
             <td><input name="price" class="foodPropertiesWidth" type="text" value="${food.price}"></td>
             <td><input name="num" class="foodPropertiesWidth" type="text" value="${food.num}"></td>
             <td>
-                <button id="${food.id}" onclick="f('${food.id}','${food.name}','${food.price}','${food.num}')">编辑</button>&nbsp;&nbsp;&nbsp;
-                <button>删除</button>
+                <button id="${food.id}" onclick="edit('${food.id}','${food.name}','${food.price}','${food.num}')">编辑</button>&nbsp;&nbsp;&nbsp;
+                <button onclick="del('${food.id}')">删除</button>
             </td>
         </tr>
     </c:forEach>
