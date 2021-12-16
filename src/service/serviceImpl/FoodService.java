@@ -8,4 +8,6 @@ public interface FoodService {
     void addFood(Food food);
 
     List<Food> findFood();
+
+    void updateFood(Food food);
 }

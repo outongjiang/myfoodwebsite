@@ -67,7 +67,6 @@ public abstract class JDBC {
         conn=getConnection();
         int j=-1;
         try {
-            conn=getConnection();
             prestate=conn.prepareStatement(sql);
         } catch (SQLException throwables) {
             throwables.printStackTrace();

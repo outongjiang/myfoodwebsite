@@ -27,4 +27,14 @@ public class FoodServiceImpl implements FoodService{
         }
         return null;
     }
+
+    @Override
+    public void updateFood(Food food) {
+        List<Object>list=new ArrayList<>();
+        list.add(food.getName());
+        list.add(food.getPrice());
+        list.add(food.getNum());
+        list.add(food.getId());
+        foodDao.updateFood(list);
+    }
 }

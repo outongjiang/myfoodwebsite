@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -18,9 +19,9 @@ public class FoodListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         FoodService foodService=new FoodServiceImpl();
         List<Food> foods =foodService.findFood();
-        req.setAttribute("foods",foods);
-        System.out.println(foods);
-        req.getRequestDispatcher("/foodList.jsp").forward(req,resp);
+        HttpSession foodSession = req.getSession();
+        foodSession.setAttribute("foods",foods);
+        resp.sendRedirect(req.getContextPath()+"/foodList.jsp");
     }
 
     @Override
