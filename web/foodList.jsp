@@ -44,9 +44,10 @@
         <th>食物数量</th>
         <th>更新</th>
     </tr>
+    <form action="DeleteFoodServlet" method="get">
     <c:forEach items="${sessionScope.foods}" var="food" varStatus="s">
         <tr>
-            <td><input type="checkbox"></td>
+            <td><input name="id" value="" type="checkbox"></td>
             <td><input name="" id="bkbj" class="foodPropertiesWidth" type="text" value="${s.index}"></td>
             <td><input name="" class="foodPropertiesWidth2" type="text" value="${food.name}"></td>
             <td><input name="price" class="foodPropertiesWidth" type="text" value="${food.price}"></td>
@@ -57,6 +58,7 @@
             </td>
         </tr>
     </c:forEach>
+    </form>
 </table>
 <nav aria-label="...">
     <ul class="pagination">
