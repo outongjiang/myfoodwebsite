@@ -37,8 +37,8 @@ function edit(id1) {
     var id = "#" + id1;
     if($(id).html() == "编辑"){
         var input =$(id).parent().parent().children("td").children("input[type='text']").not("#bkbj");
-        input.attr("readOnly", false);
-        input.attr("disabled", false);
+        input.prop("readOnly", false);
+        input.prop("disabled", false);
         input.removeClass("foodProperties_border");
         input.focus();
         $(id).html("完成");
