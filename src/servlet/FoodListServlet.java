@@ -13,8 +13,11 @@ import java.io.IOException;
 import java.util.List;
 @WebServlet("/FoodListServlet")
 public class FoodListServlet extends HttpServlet {
+    int count=0;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        count++;
+        System.out.println("第"+count+"次"+"FoodListServlet");
         FoodService foodService=new FoodServiceImpl();
         List<Food> foods =foodService.findFood();
         HttpSession foodSession = req.getSession();

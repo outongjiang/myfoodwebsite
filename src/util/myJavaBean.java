@@ -23,7 +23,7 @@ public class myJavaBean {
                 m = c.getMethod("set" + key.split("")[0].toUpperCase()+key.substring(1,key.length()), String.class);
                 flag=2;
             }
-            if(params.get(key)==null)
+            if(params.get(key)==null||params.get(key).equals(""))
                 continue;
             for(String value:params.get(key)) {
                 if(flag==2) {

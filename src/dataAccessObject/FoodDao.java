@@ -12,7 +12,7 @@ import java.util.List;
 
 public class FoodDao {
     public void addFood(Food food, List<Object> params) {
-        String sql="insert into food values(null,?,?,?)";
+        String sql="insert into food values(null,?,?,?,'1')";
         JDBC.update(sql,params);
 
     }

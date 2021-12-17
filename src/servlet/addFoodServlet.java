@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.Map;
 @WebServlet("/addFoodServlet")
 public class addFoodServlet extends HttpServlet {
@@ -18,6 +19,9 @@ public class addFoodServlet extends HttpServlet {
             req.setCharacterEncoding("utf-8");
             resp.setCharacterEncoding("utf-8");
             Map<String,String[]> map=req.getParameterMap();
+        for(String k:map.keySet()){
+            System.out.println(k+":"+map.get(k)[0]);
+        }
             Food food=new Food();
             try {
                 myJavaBean.setFields(food,map);
@@ -26,7 +30,6 @@ public class addFoodServlet extends HttpServlet {
             }
             FoodService foodService=new FoodServiceImpl();
             foodService.addFood(food);
-            System.out.println(food);
             resp.sendRedirect(req.getContextPath()+"/addFood.jsp");
     }
 

@@ -43,9 +43,7 @@
             <span class="input-group-addon hiddenSpan" id="basic-addon1"></span>
             <button type="button" class="findBtn form-control " aria-describedby="basic-addon1" onclick="dels()">删除选中</button>
 
-
         </div>
-
     </div>
 </div>
 </form>
@@ -68,13 +66,13 @@
             <td><input name="price" class="foodPropertiesWidth" type="text" value="${food.price}"></td>
             <td><input name="num" class="foodPropertiesWidth" type="text" value="${food.num}"></td>
             <c:if test="${food.status eq '1'}">
-            <td><input name="status"   class="foodPropertiesWidth" type="text" value="正在销售"></td>
+            <td><input id="bkbj" name="status"   class="foodPropertiesWidth" type="text" value="正在销售"></td>
             </c:if>
             <c:if test="${food.status eq '0'}">
-                <td><input name="status"   class="foodPropertiesWidth" type="text" value="已下架"></td>
+                <td><input id="bkbj" name="status"   class="foodPropertiesWidth" type="text" value="已下架"></td>
             </c:if>
             <td>
-                <button id="${food.id}" type="button" onclick="javascript:edit('${food.id}')">编辑</button>&nbsp;&nbsp;&nbsp;
+                <button id="${food.id}" type="button" onclick="edit(${food.id})">编辑</button>&nbsp;&nbsp;&nbsp;
                 <button type="button" onclick="del(${food.id})">删除</button>
             </td>
         </tr>
@@ -93,3 +91,6 @@
 </nav>
 </body>
 </html>
+
+
+
