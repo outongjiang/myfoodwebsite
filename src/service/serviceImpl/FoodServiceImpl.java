@@ -6,8 +6,7 @@ import util.JDBC;
 import util.myJavaBean;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class FoodServiceImpl implements FoodService{
     FoodDao foodDao=new FoodDao();
@@ -22,9 +21,17 @@ public class FoodServiceImpl implements FoodService{
     }
 
     @Override
-    public List<Food> findFood() {
+    public List<Food> findFood(Food food,Object[] keys) {
+        System.out.println(Arrays.toString(keys));
+        Map<String,Object>data= new HashMap<>();
+        if(!"".equals(food.getName())&&food.getName()!=null)
+        data.put(String.valueOf(keys[0]),food.getName());
+        if(food.getPrice()!=null)
+            data.put(String.valueOf(keys[1]),food.getPrice());
+        if(food.getNum()!=null)
+            data.put(String.valueOf(keys[2]),food.getNum());
         try {
-            return foodDao.findFood();
+            return foodDao.findFood(data);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

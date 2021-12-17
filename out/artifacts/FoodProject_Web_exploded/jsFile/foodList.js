@@ -1,5 +1,4 @@
 $(function() {
-
     var init_input = $("td>input[type='text']");
     init_input.prop("readOnly", true);
     init_input.prop("disabled", true);
@@ -13,23 +12,16 @@ $(function() {
                 }
             }
         } else {
-
             for (var i = 0; i < checkboxs.length; i++) {
                 if ($(checkboxs[i]).prop("checked") == true) {
                     $(checkboxs[i]).prop("checked", false);
                 }
             }
-
         }
-
     });
-
-
 })
-
 function del(id1) {
     if(confirm("您确定要删除该选项?")){
-
         self.location.href ="/vd/DeleteFoodServlet?id="+id1;
     }
 }

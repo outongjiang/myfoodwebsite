@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class FoodDao {
     public void addFood(Food food, List<Object> params) {
@@ -17,9 +18,17 @@ public class FoodDao {
 
     }
 
-    public List<Food> findFood() throws SQLException {
-        String sql = "select * from food";
-        ResultSet rs = JDBC.select(sql, null);
+    public List<Food> findFood(Map<String,Object>data) throws SQLException {
+        String baseSql= "select * from food where 1=1 ";
+        StringBuffer sql=new StringBuffer();
+        sql.append(baseSql);
+        List<Object>params=new ArrayList<>();
+        for(String k:data.keySet()){
+            sql.append(" and "+k+"="+"?");
+            params.add(data.get(k));
+        }
+        System.out.println(sql.toString());
+        ResultSet rs = JDBC.select(sql.toString(), params);
         try {
             return myJavaBean.Result_List(rs, Food.class);
         } catch (NoSuchFieldException e) {

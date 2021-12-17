@@ -25,9 +25,6 @@
     <div class="row">
         <div class="input-group col-lg-6">
 
-
-            <input name="id" type="hidden" class="inputWidth form-control" placeholder="食物名称">
-
             <span class="input-group-addon" id="basic-addon1">食物名称</span>
             <input name="name" type="text" class="inputWidth form-control" placeholder="食物名称">
 

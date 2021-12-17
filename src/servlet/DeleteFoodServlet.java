@@ -26,9 +26,8 @@ public class DeleteFoodServlet extends HttpServlet {
         if(id!=null){
             FoodService foodService=new FoodServiceImpl();
             foodService.deleteFood(id);
-            resp.sendRedirect(req.getContextPath()+"/FoodListServlet");
         }
-        resp.sendRedirect("/vd/FoodListServlet");
+        resp.sendRedirect(req.getContextPath()+"/FoodListServlet");
 
     }
 }
