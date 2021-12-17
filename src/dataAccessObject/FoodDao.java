@@ -24,8 +24,8 @@ public class FoodDao {
         sql.append(baseSql);
         List<Object>params=new ArrayList<>();
         for(String k:data.keySet()){
-            sql.append(" and "+k+"="+"?");
-            params.add(data.get(k));
+            sql.append(" and "+k+" like "+"?");
+            params.add("%"+data.get(k)+"%");
         }
         System.out.println(sql.toString());
         ResultSet rs = JDBC.select(sql.toString(), params);
