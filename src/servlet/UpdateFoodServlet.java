@@ -18,6 +18,8 @@ import java.util.Map;
 public class UpdateFoodServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String,String[]>map=request.getParameterMap();
+        HttpSession session=request.getSession();
+        session.setAttribute("update","y");
         Food food=new Food();
         try {
             myJavaBean.setFields(food,map);

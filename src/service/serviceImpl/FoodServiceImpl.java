@@ -22,7 +22,7 @@ public class FoodServiceImpl implements FoodService{
 
     @Override
     public List<Food> findFood(Food food,Object[] keys) {
-        System.out.println(Arrays.toString(keys));
+
         Map<String,Object>data= new HashMap<>();
         if(!"".equals(food.getName())&&food.getName()!=null)
         data.put(String.valueOf(keys[0]),food.getName());
@@ -30,6 +30,7 @@ public class FoodServiceImpl implements FoodService{
             data.put(String.valueOf(keys[1]),food.getPrice());
         if(food.getNum()!=null)
             data.put(String.valueOf(keys[2]),food.getNum());
+        System.out.println(data.keySet());
         try {
             return foodDao.findFood(data);
         } catch (SQLException throwables) {
@@ -41,10 +42,15 @@ public class FoodServiceImpl implements FoodService{
     @Override
     public void updateFood(Food food) {
         List<Object>list=new ArrayList<>();
-        list.add(food.getName());
-        list.add(food.getPrice());
-        list.add(food.getNum());
-        list.add(food.getId());
+        if(food.getNum()==null){
+            list.add(food.getStatus());
+            list.add(food.getId());
+        }else {
+            list.add(food.getName());
+            list.add(food.getPrice());
+            list.add(food.getNum());
+            list.add(food.getId());
+        }
         foodDao.updateFood(list);
         JDBC.Close();
     }

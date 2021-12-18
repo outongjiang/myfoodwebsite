@@ -26,14 +26,29 @@
         <div class="input-group col-lg-6">
 
             <span class="input-group-addon" id="basic-addon1">食物名称</span>
-            <input name="name" type="text" class="inputWidth form-control" placeholder="食物名称">
+            <c:if test="${empty sessionScope.huiXian.name}">
+            <input name="name"  type="text" class="inputWidth form-control" placeholder="食物名称">
+            </c:if>
+            <c:if test="${not empty sessionScope.huiXian.name}">
+                <input name="name" value="${sessionScope.huiXian.name}" type="text" class="inputWidth form-control" placeholder="">
+            </c:if>
 
             <span class="input-group-addon" id="basic-addon1">食物价格</span>
+
+            <c:if test="${not empty sessionScope.huiXian.price}">
+            <input name="price" value="${sessionScope.huiXian.price}" type="text" class="inputWidth form-control " placeholder="" aria-describedby="basic-addon1">
+            </c:if>
+            <c:if test="${empty sessionScope.huiXian.price}">
             <input name="price" type="text" class="inputWidth form-control " placeholder="食物价格" aria-describedby="basic-addon1">
+            </c:if>
 
             <span class="input-group-addon" id="basic-addon1">食物数量</span>
-            <input name="num" type="text" class="inputWidth form-control " placeholder="食物数量" aria-describedby="basic-addon1">
-
+            <c:if test="${not empty sessionScope.huiXian.num}">
+                <input name="num" value="${sessionScope.huiXian.num}" type="text" class="inputWidth form-control " placeholder="" aria-describedby="basic-addon1">
+            </c:if>
+            <c:if test="${empty sessionScope.huiXian.num}">
+                <input name="num" type="text" class="inputWidth form-control " placeholder="食物数量" aria-describedby="basic-addon1">
+            </c:if>
             <span class="input-group-addon hiddenSpan" id="basic-addon1"></span>
             <input type="submit" class="findBtn form-control " aria-describedby="basic-addon1" value="查询">
 
@@ -70,7 +85,13 @@
             </c:if>
             <td>
                 <button id="${food.id}" type="button" onclick="edit(${food.id})">编辑</button>&nbsp;&nbsp;&nbsp;
-                <button type="button" onclick="del(${food.id})">删除</button>
+                <button type="button" onclick="del(${food.id})">删除</button>&nbsp;&nbsp;
+                <c:if test="${food.status eq '1'}">
+                <button type="button" ><a class="status_a" href="${pageContext.request.contextPath}/UpdateFoodServlet?status=0&id=${food.id}" >下架</a></button>
+                </c:if>
+                <c:if test="${food.status eq '0'}">
+                    <button type="button"><a class="status_a" href="${pageContext.request.contextPath}/UpdateFoodServlet?status=1&id=${food.id}" >上架</a></button>
+                </c:if>
             </td>
         </tr>
     </c:forEach>
@@ -78,12 +99,23 @@
 </table>
 <nav aria-label="...">
     <ul class="pagination">
-        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-        <li class=""><a href="#">1 <span class="sr-only">(current)</span></a></li>
-        <li class=""><a href="#">1 <span class="sr-only">(current)</span></a></li>
-        <li class=""><a href="#">1 <span class="sr-only">(current)</span></a></li>
-        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-        <li class="disabled"><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+        <c:if test="${sessionScope.PageBean.currPage!=1}">
+        <li class="active"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+        </c:if>
+        <c:if test="${sessionScope.PageBean.currPage==1}">
+            <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+        </c:if>
+
+        <c:forEach  step="1" var="v" varStatus="s" begin="${1}" end="${sessionScope.PageBean.rows}">
+        <li class=""><a href="#">${s.index}<span class="sr-only">1</span></a></li>
+        </c:forEach>
+
+        <c:if test="${sessionScope.PageBean.currPage==sessionScope.PageBean.rows}">
+            <li class="disabled"><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+        </c:if>
+        <c:if test="${sessionScope.PageBean.currPage!=sessionScope.PageBean.rows}">
+            <li class="active"><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+        </c:if>
     </ul>
 </nav>
 </body>
