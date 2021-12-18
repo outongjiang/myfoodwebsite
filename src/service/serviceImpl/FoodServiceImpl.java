@@ -2,8 +2,8 @@ package service.serviceImpl;
 
 import dataAccessObject.FoodDao;
 import model.Food;
+import model.PageBean;
 import util.JDBC;
-import util.myJavaBean;
 
 import java.sql.SQLException;
 import java.util.*;
@@ -21,18 +21,19 @@ public class FoodServiceImpl implements FoodService{
     }
 
     @Override
-    public List<Food> findFood(Food food,Object[] keys) {
-
+    public PageBean findFood(Food food, Object[] keys, int currPage) {
+        System.out.println(food);
+        System.out.println(Arrays.toString(keys));
         Map<String,Object>data= new HashMap<>();
         if(!"".equals(food.getName())&&food.getName()!=null)
-        data.put(String.valueOf(keys[0]),food.getName());
+            data.put(String.valueOf(keys[0]),food.getName());
         if(food.getPrice()!=null)
             data.put(String.valueOf(keys[1]),food.getPrice());
         if(food.getNum()!=null)
             data.put(String.valueOf(keys[2]),food.getNum());
         System.out.println(data.keySet());
         try {
-            return foodDao.findFood(data);
+            return foodDao.findChooseFood(data,currPage,foodDao.findAllFood());
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

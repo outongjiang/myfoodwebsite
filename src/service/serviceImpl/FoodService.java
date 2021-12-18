@@ -1,13 +1,12 @@
 package service.serviceImpl;
 
 import model.Food;
-
-import java.util.List;
+import model.PageBean;
 
 public interface FoodService {
     void addFood(Food food);
 
-    List<Food> findFood(Food food,Object keys[]);
+    PageBean findFood(Food food, Object[] keys, int i);
 
     void updateFood(Food food);
 

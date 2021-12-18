@@ -39,7 +39,7 @@
             <input name="price" value="${sessionScope.huiXian.price}" type="text" class="inputWidth form-control " placeholder="" aria-describedby="basic-addon1">
             </c:if>
             <c:if test="${empty sessionScope.huiXian.price}">
-            <input name="price" type="text" class="inputWidth form-control " placeholder="食物价格" aria-describedby="basic-addon1">
+            <input name="price" type="text" class="inputWidth form-control " placeholder="最大预算" aria-describedby="basic-addon1">
             </c:if>
 
             <span class="input-group-addon" id="basic-addon1">食物数量</span>
@@ -47,7 +47,7 @@
                 <input name="num" value="${sessionScope.huiXian.num}" type="text" class="inputWidth form-control " placeholder="" aria-describedby="basic-addon1">
             </c:if>
             <c:if test="${empty sessionScope.huiXian.num}">
-                <input name="num" type="text" class="inputWidth form-control " placeholder="食物数量" aria-describedby="basic-addon1">
+                <input name="num" type="text" class="inputWidth form-control " placeholder="最大数量" aria-describedby="basic-addon1">
             </c:if>
             <span class="input-group-addon hiddenSpan" id="basic-addon1"></span>
             <input type="submit" class="findBtn form-control " aria-describedby="basic-addon1" value="查询">
@@ -70,10 +70,10 @@
         <th>更新</th>
     </tr>
     <form id="dels" action="${pageContext.request.contextPath}/DeleteFoodServlet" method="get">
-    <c:forEach items="${sessionScope.foods}" var="food" varStatus="s">
+    <c:forEach items="${sessionScope.PageBean.foods}" var="food" varStatus="s">
         <tr>
             <td><input name="id" value="${food.id}" type="checkbox"></td>
-            <td><input name="" id="bkbj" class="foodPropertiesWidth" type="text" value="${s.index}"></td>
+            <td><input name="" id="bkbj" class="foodPropertiesWidth" type="text" value="${s.index+1+(sessionScope.PageBean.currPage-1)*5}"></td>
             <td><input name="" class="foodPropertiesWidth2" type="text" value="${food.name}"></td>
             <td><input name="price" class="foodPropertiesWidth" type="text" value="${food.price}"></td>
             <td><input name="num" class="foodPropertiesWidth" type="text" value="${food.num}"></td>
@@ -100,20 +100,26 @@
 <nav aria-label="...">
     <ul class="pagination">
         <c:if test="${sessionScope.PageBean.currPage!=1}">
-        <li class="active"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+        <li class="active"><a href="FoodListServlet?currPage=${sessionScope.PageBean.currPage-1}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
         </c:if>
         <c:if test="${sessionScope.PageBean.currPage==1}">
-            <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+            <li class="disabled"><a href="" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
         </c:if>
+
         <c:forEach  step="1" var="v" varStatus="s" begin="${1}" end="${sessionScope.PageBean.rows}">
-        <li class=""><a href="#">${s.index}<span class="sr-only">1</span></a></li>
+            <c:if test="${sessionScope.PageBean.currPage==s.index}">
+            <li class="active"><a href="FoodListServlet?currPage=${s.index}">${s.index}<span class="sr-only">1</span></a></li>
+            </c:if>
+            <c:if test="${sessionScope.PageBean.currPage!=s.index}">
+                <li class=""><a href="FoodListServlet?currPage=${s.index}">${s.index}<span class="sr-only">1</span></a></li>
+            </c:if>
         </c:forEach>
 
         <c:if test="${sessionScope.PageBean.currPage==sessionScope.PageBean.rows}">
-            <li class="disabled"><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+            <li class="disabled"><a href="" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
         </c:if>
         <c:if test="${sessionScope.PageBean.currPage!=sessionScope.PageBean.rows}">
-            <li class="active"><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+            <li class="active"><a href="FoodListServlet?currPage=${sessionScope.PageBean.currPage+1}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
         </c:if>
     </ul>
 </nav>

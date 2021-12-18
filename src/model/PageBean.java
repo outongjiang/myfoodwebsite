@@ -5,12 +5,12 @@ import java.util.List;
 public class PageBean {
     private Integer rows;//共有几行
     private Integer currPage;//当前页码
-    private Integer count;//每页的条数
+    private int count;//每页的条数
     private  List<Food> foods;
-    public PageBean(Integer rows, Integer currPage, Integer count, List<Food> foods) {
+    public PageBean(Integer rows, Integer currPage, int count, List<Food> foods) {
         this.rows = rows;
         this.currPage = currPage;
-        this.count = count;
+        this.count = count=5;
         this.foods = foods;
     }
 
@@ -45,7 +45,7 @@ public class PageBean {
         this.currPage = currPage;
     }
 
-    public Integer getCount() {
+    public int getCount() {
         return count;
     }
 

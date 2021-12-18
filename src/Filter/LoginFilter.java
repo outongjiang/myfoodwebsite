@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 //loginStatus -1表示验证码错误 -2表示账户密码错误
-//@WebFilter("/home.jsp")
+@WebFilter("/home.jsp")
 public class LoginFilter implements Filter {
 
     @Override

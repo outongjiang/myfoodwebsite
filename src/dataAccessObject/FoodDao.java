@@ -1,6 +1,8 @@
 package dataAccessObject;
 
+import jdk.nashorn.internal.scripts.JD;
 import model.Food;
+import model.PageBean;
 import util.JDBC;
 import util.myJavaBean;
 
@@ -18,21 +20,56 @@ public class FoodDao {
         JDBC.update(sql,params);
 
     }
+    public int findAllFood() throws SQLException {
+        ResultSet rs=JDBC.select("select*from food",null);
+        int sumPage=0;
+        while (rs.next()){
+            sumPage++;
+        }
+        return sumPage;
+    }
 
-    public List<Food> findFood(Map<String,Object>data) throws SQLException {
+    public PageBean findChooseFood(Map<String,Object>data, Integer currPage,int sumPage) throws SQLException {
         String baseSql= "select * from food where 1=1 ";
+        int flag=0;
+        int rows=-1;
         StringBuffer sql=new StringBuffer();
         sql.append(baseSql);
         List<Object>params=new ArrayList<>();
+        PageBean pageBean=new PageBean();
+        pageBean.setCount(5);
         System.out.println(Arrays.toString(data.keySet().toArray()));
         for(String k:data.keySet()){
-            sql.append(" and "+k+" like "+"?");
-            params.add("%"+data.get(k)+"%");
+            flag=1;
+            if("price".equals(k)||"num".equals(k)){
+                sql.append(" and "+k+" <= "+"?");
+                params.add(data.get(k));
+            }else{
+                sql.append(" and "+k+" like "+"?");
+                params.add("%"+data.get(k)+"%");
+            }
         }
-
+        if(flag==1){
+            currPage=1;
+            sumPage=0;
+            ResultSet rs=JDBC.select(sql.toString(),params);
+            while (rs.next())
+                sumPage++;
+        }
+        sql.append(" limit ?,?");
+        System.out.println(sql.toString());
+        params.add((currPage-1)*pageBean.getCount());
+        params.add(pageBean.getCount());
         ResultSet rs = JDBC.select(sql.toString(), params);
         try {
-            return myJavaBean.Result_List(rs, Food.class);
+            List<Food>foods=myJavaBean.Result_List(rs, Food.class);
+            pageBean.setFoods(foods);
+            pageBean.setCurrPage(currPage);
+            rows= sumPage/(pageBean.getCount()*1.0)==sumPage/pageBean.getCount()?sumPage/pageBean.getCount():sumPage/pageBean.getCount()+1;
+            pageBean.setRows(rows);
+            JDBC.Close();
+
+            return pageBean;
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {

@@ -26,6 +26,7 @@ public class FoodListServlet extends HttpServlet {
         FoodService foodService=new FoodServiceImpl();
         HttpSession foodSession = req.getSession();
         Map<String,String[]>map =req.getParameterMap();
+
         Object[]keys=null;
         Food food=new Food();
         try {
@@ -35,10 +36,11 @@ public class FoodListServlet extends HttpServlet {
         }
         keys = map.keySet().toArray();
         foodSession.setAttribute("huiXian", food);
-        List<Food> foods =foodService.findFood((Food) foodSession.getAttribute("huiXian"),keys);
-        foodSession.setAttribute("foods",foods);
-        PageBean pageBean=new PageBean();
-
+        String currPage=req.getParameter("currPage")==null?"1":req.getParameter("currPage");
+        PageBean pageBean =foodService.findFood(food,keys,Integer.parseInt(currPage));
+        foodSession.setAttribute("PageBean",pageBean);
+//        System.out.println(pageBean.getCurrPage()+":"+pageBean.getCount());
+//        System.out.println(food);
         resp.sendRedirect(req.getContextPath()+"/foodList.jsp");
 
     }

@@ -16,6 +16,8 @@ public class myJavaBean {
         Method m=null;
         int flag2=0;
         for(String key:params.keySet()){
+            if("currPage".equals(key))
+                continue;
             int flag=1;
             if(c.getDeclaredField(key).getType().toString().contains("Integer")) {
 //                System.out.println(c.getDeclaredField(key).getType().toString());
